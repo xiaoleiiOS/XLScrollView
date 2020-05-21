@@ -18,7 +18,7 @@
 
 **为了方便，scrollView的分段三个级别用，1级，2级，3级来说明。**
 
-####控件层级介绍：
+#### 控件层级介绍：
 ![](https://upload-images.jianshu.io/upload_images/728436-a3eee921eb775b30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 黑色层：当为2级时，可以点击button，跳转到3级。
@@ -27,7 +27,7 @@
 
 分析具体实现
 -----------
-####1、上中下三段效果实现
+### 1、上中下三段效果实现
 分页效果首先想到就是`isPagingEnabled `属性，但是他有局限性，不能随便分页，只能在每个分页大小一样的情况下使用，所以这里不能使用。
 这里主要用到了scrollView的代理方法。
 ```
@@ -104,7 +104,7 @@ func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity
 ```
 **这样其实就大体实现了，分三段的效果。**
 
-####2、视图显示到3级时，如何实现不遮挡地图触摸事件
+#### 2、视图显示到3级时，如何实现不遮挡地图触摸事件
 
 因为scrollView是全屏布局，才可以全屏滚动。这样不可避免的就会遮挡住地图的触摸事件交互，这跟我们的需求是不符的。所以需要我们来做一个处理，**这里用到了`hitTest:withEvent`方法来解决**。
 
@@ -132,7 +132,7 @@ override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 
 这里的业务需求就是手指触碰白色tableView才可以拖动，触碰红色区域不会影响下一层的Map地图交互。（这里因为我中间添加了一个黑色图层，是想实现在2级时，点击黑色按钮，可以到达3级，当到3级时，黑色按钮设置`isUserInteractionEnabled = false`，不会影响地图交互）
 
-####3、解决滑动冲突
+#### 3、解决滑动冲突
 滑动tableView的时候，还需要让scrollView也同时滚动，所以首先要让他们之间的滚动互相不受影响。
 这里需要用到`UIGestureRecognizerDelegate`代理里的方法。
 
