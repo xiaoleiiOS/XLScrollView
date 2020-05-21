@@ -11,7 +11,7 @@
 **想要做成这种效果，肯定是需要两层滚动scrollView来实现。底层scrollView来实现分段效果，内层scrollView来实现列表展示的作用。**
 **这里两个竖直滚动的视图，就会发生滑动冲突。**
 
-###这里有一些关键点：
+### 这里有一些关键点：
 * 底层的滑动View，如何做成上中下三段效果，不能用`isPagingEnabled`属性来实现，这里用了`scrollViewWillEndDragging`代理加动画来实现。
 * 当底层scrollView滚动至最底部时，要求不遮挡地图的触摸事件，可以正常的与地图进行交互。这里用到了响应链`hitTest:withEvent`方法来解决。
 * 双层滚动视图的滑动冲突。
