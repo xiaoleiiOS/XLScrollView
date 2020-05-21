@@ -179,9 +179,3 @@ func scrollViewDidScroll(_ scrollView: UIScrollView) {
 ```
 添加两个标记（其实用一个标记也可以），来控制视图是否可以滚动。
 这样来控制，就可以解决问题了。
-
-------
-
-重要的关键点，现在都解决了，其他一些细枝末节就不记录了。
-贴上源码以供参考：
-[项目源码地址](https://github.com/xiaoleiiOS/XLScrollView)
