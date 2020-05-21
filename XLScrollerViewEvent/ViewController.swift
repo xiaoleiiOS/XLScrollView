@@ -43,7 +43,7 @@ class ViewController: UIViewController {
        
         let scrollView = XLScrollView(frame: CGRect(x: 0, y: kStatusBarAndNavigationBarHeight, width: self.view.width, height: self.view.height - kStatusBarAndNavigationBarHeight))
         scrollView.delegate = self;
-        scrollView.backgroundColor = UIColor.red
+        scrollView.backgroundColor = UIColor.clear
         scrollView.contentSize = CGSize(width: self.view.width, height: (self.view.height - kStatusBarAndNavigationBarHeight) * 2 - bottomBarHeight)
         //这里不能用isPagingEnabled来做分页效果
 //        scrollView.isPagingEnabled = true
@@ -62,8 +62,8 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 68
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
+//        tableView.estimatedSectionHeaderHeight = 0
+//        tableView.estimatedSectionFooterHeight = 0
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
         
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     private lazy var quitButton: UIButton = {
        
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.backgroundColor = UIColor.black
+        button.backgroundColor = UIColor.clear
         button.frame = CGRect(x: 0, y: kStatusBarAndNavigationBarHeight, width: self.scrollView.width, height: self.scrollView.height - bottomBarHeight)
         button.addTarget(self, action: #selector(quitButtonClick(sender:)), for: UIControl.Event.touchDown)
         return button
